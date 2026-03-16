@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maya-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: maya-app
+  template:
+    metadata:
+      labels:
+        app: maya-app
+    spec:
+      containers:
+        - name: maya-app
+          image: brahma01/maya-app:latest
+          ports:
+            - containerPort: 3001
